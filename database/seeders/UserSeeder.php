@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'address' => 'earth',
             'gender' => 'Male',
-            'RoleId' => '1'
+            'roleId' => '1'
         ]);
 
         //user
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'address' => 'Jl. earth no 1',
             'gender' => 'Female',
-            'RoleId' => '2'
+            'roleId' => '2'
         ]);
     }
 }

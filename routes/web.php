@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\FurnitureController::class, 'home']);
+
+Route::group(['prefix' => '/admin', 'middleware' => ['adminValidate', 'auth']], function(){
+    Route::group(['prefix' => 'furniture'], function(){
+        Route::get('/add', [App\Http\Controllers\FurnitureController::class, 'add']);
+        Route::post('/insert', [App\Http\Controllers\FurnitureController::class, 'insert']);
+    });
+});
+
+Route::group(['prefix' => '/user', 'middleware' => ['userValidate', 'auth']], function(){
+
+});

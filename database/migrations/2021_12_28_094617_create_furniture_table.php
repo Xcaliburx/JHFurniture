@@ -22,6 +22,7 @@ class CreateFurnitureTable extends Migration
             $table->unsignedInteger('colorId');
             $table->foreign('colorId')->references('id')->on('colors');
             $table->string('image');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

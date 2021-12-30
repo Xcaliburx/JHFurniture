@@ -20,11 +20,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\FurnitureController::class, 'home']);
+Route::get('/furniture/view', [App\Http\Controllers\FurnitureController::class, 'view']);
+Route::post('/furniture/search', [App\Http\Controllers\FurnitureController::class, 'view']);
+Route::get('/furniture/detail/{id}', [App\Http\Controllers\FurnitureController::class, 'detail']);
 
 Route::group(['prefix' => '/admin', 'middleware' => ['adminValidate', 'auth']], function(){
     Route::group(['prefix' => 'furniture'], function(){
         Route::get('/add', [App\Http\Controllers\FurnitureController::class, 'add']);
         Route::post('/insert', [App\Http\Controllers\FurnitureController::class, 'insert']);
+        Route::get('/edit/{id}', [App\Http\Controllers\FurnitureController::class, 'edit']);
+        Route::patch('/update/{id}', [App\Http\Controllers\FurnitureController::class, 'update']);
+        Route::delete('/delete/{id}', [App\Http\Controllers\FurnitureController::class, 'delete']);
     });
 });
 

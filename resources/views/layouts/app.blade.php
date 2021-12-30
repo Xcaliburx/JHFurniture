@@ -43,7 +43,7 @@
                             <a class="nav-link text-white" href="/home">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="">{{ __('View') }}</a>
+                            <a class="nav-link text-white" href="/furniture/view">{{ __('View') }}</a>
                         </li>
                         @guest
                             @if (Route::has('login'))

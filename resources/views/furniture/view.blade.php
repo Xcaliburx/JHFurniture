@@ -1,24 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-@if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{ session('success') }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
-
 <div class="container">
-    @auth
-        <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">Welcome, {{ Auth::user()->name }}</h2>
-        <h2 class="text-center fw-bold" style="color: #b86ebb">to JH Furniture</h2>
-    @endauth
+    <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">View Furniture</h2>
 
-    @guest
-        <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">Welcome to JH Furniture</h2>
-    @endguest
+    <form class="mt-4" action="{{ url('/furniture/search') }}" method="POST">
+        @csrf
 
-    <div class="row gx-5 gy-4 mt-4">
+        <div class="d-flex flex-row gap-2 justify-content-end">
+            <input class="form-control w-25" type="text" name="search" placeholder="Search by furniture's name">
+            <button type="submit" class="btn text-white" style="background-color: #b86ebb">Search</button>
+        </div>
+    </form>
+
+    <div class="row gx-5 gy-4 mt-2">
         @if(count($furnitures) == 0)
             <h1  style="color: #b86ebb">There is no data</h1>
         @endif
@@ -38,7 +33,7 @@
                     @auth
                         @if(Auth::user()->roleId == 1)
                             <div class="d-flex flex-row justify-content-md-around">
-                                <a class="btn btn-success rounded-3" href="/admin/furniture/edit/{{ $furniture->id }}">Update</a>
+                                <a href="/admin/furniture/edit/{{ $furniture->id }}" class="btn btn-success rounded-3">Update</a>
                                 <form action="{{ url('/admin/furniture/delete', $furniture->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -52,10 +47,20 @@
                             </button>
                         @endif
                     @endauth
-                    
+
                 </div>
             </div>
         @endforeach
     </div>
+    <ul class="pagination">
+        <div class="d-block mx-auto mt-5">
+            @if($furnitures->previousPageUrl())
+                <a class="fs-4" href="{{$furnitures->previousPageUrl()}}" style="text-decoration: none; color:#b86ebb"><< Previous </a>
+            @endif
+            @if($furnitures->nextPageUrl())
+                <a class="fs-4" href="{{$furnitures->nextPageUrl()}}" style="text-decoration: none; color:#b86ebb"> Next >></a>
+            @endif
+        </div>
+    </ul>
 </div>
 @endsection

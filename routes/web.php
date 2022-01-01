@@ -24,6 +24,12 @@ Route::get('/furniture/view', [App\Http\Controllers\FurnitureController::class, 
 Route::post('/furniture/search', [App\Http\Controllers\FurnitureController::class, 'view']);
 Route::get('/furniture/detail/{id}', [App\Http\Controllers\FurnitureController::class, 'detail']);
 
+Route::middleware('auth')->group(function(){
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'view']);
+    Route::get('/profile/update', [App\Http\Controllers\ProfileController::class, 'edit']);
+    Route::patch('/profile/edit', [App\Http\Controllers\ProfileController::class, 'update']);
+});
+
 Route::group(['prefix' => '/admin', 'middleware' => ['adminValidate', 'auth']], function(){
     Route::group(['prefix' => 'furniture'], function(){
         Route::get('/add', [App\Http\Controllers\FurnitureController::class, 'add']);

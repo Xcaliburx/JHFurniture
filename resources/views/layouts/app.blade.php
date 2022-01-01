@@ -59,7 +59,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="">{{ __('Profile') }}</a>
+                                <a class="nav-link text-white" href="/profile">{{ __('Profile') }}</a>
                             </li>
                             @if(Auth::user()->roleId == 1)
                                 <li class="nav-item">

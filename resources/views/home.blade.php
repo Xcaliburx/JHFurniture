@@ -31,9 +31,9 @@
                     <h5 class="text-center text-white">{{ $furniture->name }}</h5>
                     <p class="text-center text-white">Rp. {{ $furniture->price }}</p>
                     @guest
-                    <button class="btn btn-light mx-auto d-block rounded-3 col-6 fw-bold" style="color: #b86ebb">
+                    <a href="/login" class="btn btn-light mx-auto d-block rounded-3 col-6 fw-bold" style="color: #b86ebb">
                         Add To Cart
-                    </button>
+                    </a>
                     @endguest
                     @auth
                         @if(Auth::user()->roleId == 1)
@@ -47,9 +47,12 @@
                                 </form>
                             </div>
                         @else
-                            <button class="btn btn-light mx-auto d-block rounded-3" style="color: #b86ebb">
-                                Add To Cart
-                            </button>
+                            <form action="{{ url('/user/cart/add', $furniture->id ) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-light mx-auto d-block rounded-3" style="color: #b86ebb">
+                                    Add To Cart
+                                </button>
+                            </form>
                         @endif
                     @endauth
                     

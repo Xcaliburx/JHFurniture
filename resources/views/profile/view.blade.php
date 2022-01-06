@@ -5,7 +5,7 @@
 <div class="container">
     <h2 class="text-center fw-bolder mt-4" style="color: #b86ebb">{{ $user->name }}'s Profile</h2>
 
-    <div class=" mt-5">
+    <div class="mt-5">
         <div class="d-flex flex-row justify-content-center mt-3">
             <h4 class="fw-bold col-2">Full Name</h4>
             <h4 class="fw-bold col-2">{{ $user->name }}</h4>

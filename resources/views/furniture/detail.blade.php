@@ -44,13 +44,18 @@
                 </form>
             @else
                 <a href="{{ url()->previous() }}" class="btn py-3 px-4 text-white fs-4 rounded-3 me-5" style="background-color: #b86ebb">Previous</a>
-                <button class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="background-color: #b86ebb">Add To Cart</button>
+                <form action="{{ url('/user/cart/add', $furniture->id ) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="color: #b86ebb">
+                        Add To Cart
+                    </button>
+                </form>
             @endif
         @endauth
 
         @guest
             <a href="{{ url()->previous() }}" class="btn py-3 px-4 text-white fs-4 rounded-3 me-5" style="background-color: #b86ebb">Previous</a>
-            <button class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="background-color: #b86ebb">Add To Cart</button>
+            <a href="/login" class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="background-color: #b86ebb">Add To Cart</a>
         @endguest
         
     </div>

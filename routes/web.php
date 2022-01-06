@@ -41,5 +41,10 @@ Route::group(['prefix' => '/admin', 'middleware' => ['adminValidate', 'auth']], 
 });
 
 Route::group(['prefix' => '/user', 'middleware' => ['userValidate', 'auth']], function(){
-
+    Route::group(['prefix' => 'cart'], function(){
+        Route::post('/add/{id}', [App\Http\Controllers\CartController::class, 'addCart']);
+        Route::get('/', [App\Http\Controllers\CartController::class, 'view']);
+        Route::post('/qty/add/{id}', [App\Http\Controllers\CartController::class, 'addQty']);
+        Route::post('/qty/reduce/{id}', [App\Http\Controllers\CartController::class, 'reduceQty']);
+    });
 });

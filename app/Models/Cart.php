@@ -10,6 +10,6 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id', 'userId', 'furnitureId', 'quantity', 'subTotal'
+        'id', 'userId', 'furnitureId', 'quantity'
     ];
 }

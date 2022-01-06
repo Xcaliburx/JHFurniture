@@ -106,7 +106,7 @@ class FurnitureController extends Controller
             ]);
         }
 
-        return redirect('/home')->with('success', 'Update Product Success!');;
+        return redirect('/home')->with('success', 'Update Product Success!');
     }
 
     public function delete($id){
@@ -119,7 +119,7 @@ class FurnitureController extends Controller
         $furniture = DB::table('furniture')
                      ->join('colors', 'furniture.colorId', '=', 'colors.id')
                      ->join('types', 'furniture.typeId', '=', 'types.id')
-                     ->select( 'furniture.*', 'colors.name as color', 'types.name as type')
+                     ->select('furniture.*', 'colors.name as color', 'types.name as type')
                      ->where('furniture.id', $id)
                      ->first();
 

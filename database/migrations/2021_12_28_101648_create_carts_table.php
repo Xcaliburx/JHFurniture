@@ -20,7 +20,6 @@ class CreateCartsTable extends Migration
             $table->unsignedInteger('furnitureId');
             $table->foreign('furnitureId')->references('id')->on('furniture');
             $table->integer('quantity');
-            $table->integer('subTotal');
             $table->timestamps();
         });
     }

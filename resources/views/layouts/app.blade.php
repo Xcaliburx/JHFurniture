@@ -67,7 +67,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="">{{ __('Cart') }}</a>
+                                    <a class="nav-link text-white" href="/user/cart">{{ __('Cart') }}</a>
                                 </li>
                             @endif
 

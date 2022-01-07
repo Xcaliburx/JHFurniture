@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">{{ __('Update Profile') }}</h2>

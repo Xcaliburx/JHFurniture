@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pb-5">
     <h2 class="text-center fw-bolder mt-4" style="color: #b86ebb">{{ $user->name }}'s Profile</h2>
 
     <div class="mt-5">
@@ -45,9 +45,9 @@
             </form>
 
             @if(Auth::user()->roleId == 1)
-                <button class="btn text-white" style="background-color: #b86ebb">View All User's Transaction</button>
+                <a href="/admin/transaction" class="btn text-white" style="background-color: #b86ebb">View All User's Transaction</a>
             @else
-                <button class="btn text-white" style="background-color: #b86ebb">View Transaction History</button>
+                <a href="/user/transaction" class="btn text-white" style="background-color: #b86ebb">View Transaction History</a>
             @endif
             <a href="/profile/update" class="btn text-white" style="background-color: #b86ebb">Update Profile</a>
         </div>

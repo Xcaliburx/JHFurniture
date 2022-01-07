@@ -27,6 +27,7 @@ class CartController extends Controller
 
         $carts = DB::table('carts')
                  ->join('furniture', 'carts.furnitureId', '=', 'furniture.id')
+                 ->select('carts.*', 'furniture.name', 'furniture.price', 'furniture.image')
                  ->where('carts.userId', $userId)
                  ->get();
         

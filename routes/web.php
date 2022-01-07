@@ -38,6 +38,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['adminValidate', 'auth']], 
         Route::patch('/update/{id}', [App\Http\Controllers\FurnitureController::class, 'update']);
         Route::delete('/delete/{id}', [App\Http\Controllers\FurnitureController::class, 'delete']);
     });
+    Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'allTransaction']);
 });
 
 Route::group(['prefix' => '/user', 'middleware' => ['userValidate', 'auth']], function(){
@@ -47,4 +48,7 @@ Route::group(['prefix' => '/user', 'middleware' => ['userValidate', 'auth']], fu
         Route::post('/qty/add/{id}', [App\Http\Controllers\CartController::class, 'addQty']);
         Route::post('/qty/reduce/{id}', [App\Http\Controllers\CartController::class, 'reduceQty']);
     });
+    Route::get('/checkout', [App\Http\Controllers\TransactionController::class, 'checkout']);
+    Route::post('/transaction/create', [App\Http\Controllers\TransactionController::class, 'transaction']);
+    Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'viewTransaction']);
 });

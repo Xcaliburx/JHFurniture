@@ -2,9 +2,12 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pb-5">
     <h2 class="text-center fw-bolder mt-4 mb-5" style="color: #b86ebb">Cart</h2>
 
+    @if(count($carts) == 0)
+        <h3 class="text-center">There is no item on cart</h3>
+    @endif
     @foreach ($carts as $cart)
         <div class="d-flex flex-row justify-content-around mt-5">
             <img style="border: 1px solid #b86ebb" src="{{ Storage::url($cart->image) }}" width="250" alt="">
@@ -29,7 +32,9 @@
 
     <h2 class=" text-center mt-5">Total : Rp.{{ $total }}</h2>
 
-    <button class="btn text-white d-block mx-auto mt-5 fs-4 rounded-3" style="background-color: #b86ebb">Proceed To Checkout</button>
+    @if($total != 0)
+        <a href="/user/checkout" class="btn text-white d-block mx-auto mt-4 fs-4 rounded-5" style="background-color: #b86ebb; width:fit-content">Proceed To Checkout</a>
+    @endif
 </div>
 
 @endsection

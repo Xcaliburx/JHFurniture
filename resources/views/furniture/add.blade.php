@@ -9,7 +9,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container pb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">{{ __('Add Furniture') }}</h2>

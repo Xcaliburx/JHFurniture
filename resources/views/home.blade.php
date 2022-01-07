@@ -8,7 +8,7 @@
     </div>
 @endif
 
-<div class="container">
+<div class="container pb-5">
     @auth
         <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">Welcome, {{ Auth::user()->name }}</h2>
         <h2 class="text-center fw-bold" style="color: #b86ebb">to JH Furniture</h2>

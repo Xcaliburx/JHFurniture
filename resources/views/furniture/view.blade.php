@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pb-5">
     <h2 class="text-center fw-bold mt-4" style="color: #b86ebb">View Furniture</h2>
 
     <form class="mt-4" action="{{ url('/furniture/search') }}" method="POST">

@@ -46,7 +46,7 @@
                 <a href="{{ url()->previous() }}" class="btn py-3 px-4 text-white fs-4 rounded-3 me-5" style="background-color: #b86ebb">Previous</a>
                 <form action="{{ url('/user/cart/add', $furniture->id ) }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="color: #b86ebb">
+                    <button type="submit" class="btn py-3 px-4 text-white fs-4 rounded-3 ms-5" style="background-color: #b86ebb">
                         Add To Cart
                     </button>
                 </form>

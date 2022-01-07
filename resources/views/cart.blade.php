@@ -10,7 +10,9 @@
     @endif
     @foreach ($carts as $cart)
         <div class="d-flex flex-row justify-content-around mt-5">
-            <img style="border: 1px solid #b86ebb" src="{{ Storage::url($cart->image) }}" width="250" alt="">
+            <a href="/furniture/detail/{{ $cart->furnitureId }}">
+                <img style="border: 1px solid #b86ebb" src="{{ Storage::url($cart->image) }}" width="250" alt="">
+            </a>
             <h3 class="my-auto">{{ $cart->name }}</h3>
             <h3 class="my-auto">Rp.{{ $cart->price }}</h3>
             <h3 class="my-auto">{{ $cart->quantity}} item(s)</h3>

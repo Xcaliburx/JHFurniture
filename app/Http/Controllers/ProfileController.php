@@ -32,7 +32,7 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'required|alpha_spaces|string|unique:users,name,'.$user->id,
             'email' => 'required|string|email|unique:users,email,'.$user->id,
-            'password' => 'required|string|min:5|max:29'
+            'password' => 'required|string|min:5|max:20'
         ]);
 
         User::where('id', $user->id)->update([
